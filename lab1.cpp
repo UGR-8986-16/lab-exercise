@@ -11,8 +11,8 @@ int main(){
     double product_price_per_unit;
     int number_of_item_sold;
 
-    int newInventory = initial_inventory_quantity - number_of_item_sold;
-    double total_sales_amount = number_of_item_sold * product_price_per_unit;
+    int newInventory;
+    double total_sales_amount;
     std::string inventoryStatus;
 
     auto tSales = total_sales_amount;
@@ -22,11 +22,21 @@ int main(){
     std::cout<<"Read in the product name?:";
     std::getline(std::cin,productName);
     std::cout<<"Read in the product category?:";
-    std::getline(std::cin,productCategory);
+    std::cin>> productCategory;
     std::cout<<"Read in the initial inventory quantity?:";
-    std::getline(std::cin,initial_inventory_quantity);
+    std::cin>> initial_inventory_quantity;
     std::cout<<"Read in the product price?:";
-    std::getline(std::cin,product_price_per_unit);
+    std::cin>> product_price_per_unit;
     std::cout<<"Read in the number of items sold?:";
-    std::getline(std::cin, number_of_item_sold);
+    std::cin>> number_of_item_sold;
+
+    newInventory = initial_inventory_quantity - number_of_item_sold;
+    total_sales_amount = number_of_item_sold * product_price_per_unit;
+
+    if (newInventory < 10)
+      inventoryStatus = "low inventory";
+    else
+      inventoryStatus = "sufficient inventory";
+    
+    
 }
