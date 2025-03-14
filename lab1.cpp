@@ -7,7 +7,7 @@ int main(){
 
     std::string productName;
     int productCategory;
-    int initial_inventory_quantity;//*
+    int initial_inventory_quantity;
     double product_price_per_unit;
     int number_of_item_sold;
 
@@ -23,7 +23,7 @@ int main(){
     auto tSales = total_sales_amount;
     decltype(initial_inventory_quantity)  init_inventory;
 
-    const double TAX_RATE = 0.15;
+    const double TAX_RATES = 0.15;
     
     std::cout<<"Read in the product name?:";
     std::getline(std::cin,productName);
@@ -36,7 +36,9 @@ int main(){
     std::cout<<"Read in the number of items sold?:";
     std::cin>> number_of_item_sold;
 
-    newInventory = initial_inventory_quantity - number_of_item_sold;//*
+    int newInventory;
+    newInventory -=  number_of_item_sold;
+    int total_sales_amoun;
     total_sales_amount = number_of_item_sold * product_price_per_unit;
 
     if (newInventory < 10){
@@ -94,5 +96,19 @@ int main(){
       std::cout<<"product"<<i<<product_price_per_unit<<"BIRR"<<std::endl;
     }
     
+
+    std::cout<<tax_rate<<std::endl;
+    std::cout<<TAX_RATES<<std::endl;
+    std::cout << "Product Summary:"<<std::endl;
+    std::cout << "Product Name: " << productName <<std::endl;
+    std::cout << "Product Category: " << productCategory  <<std::endl;
+    std::cout << "Initial Inventory: " << initial_inventory_quantity <<std::endl;
+    std::cout << "Product Price: " <<product_price_per_unit<<"BIRR"<<std::endl;
+    std::cout << "Items Sold: " << number_of_item_sold<<std::endl;
+    std::cout << "New Inventory: " << newInventory <<std::endl;
+    std::cout << "Total Sales: " << total_sales_amount <<"BIRR"<<std::endl;
+    std::cout << "Inventory Status: " << inventoryStatus <<std::endl;
+
+  
     return 0;
 }
