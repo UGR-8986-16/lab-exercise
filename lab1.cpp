@@ -1,5 +1,5 @@
 #include <iostream>
-#define tax_rate 0.15
+#define pre_tax_rate 0.15
 
 int main(){
     std::cout<<"The program analizes product sales and inventary to a store"<<std::endl;
@@ -20,20 +20,20 @@ int main(){
     int sample_number_of_item{123};
     int sample_initial_inventory_quantity = 987;
 
-    auto tSales = total_sales_amount; 
-    decltype(initial_inventory_quantity)  init_inventory;
+    auto salesCopy = total_sales_amount;
+    decltype(initial_inventory_quantity) inventoryCopy = initial_inventory_quantity + 10;
 
     const double TAX_RATES = 0.15;
     
-    std::cout<<"enter in the product name?:";
+    std::cout<<"Enter in the product name?:";
     std::getline(std::cin,productName);
-    std::cout<<"category 1 : electronics\nCategory 2: Groceries\nCategory 3: Clothing\nCategory 4: Stationery\nCategory 5: Miscellaneous\nenter in the product category from one to five?:";//*
+    std::cout<<"category 1 : electronics\nCategory 2: Groceries\nCategory 3: Clothing\nCategory 4: Stationery\nCategory 5: Miscellaneous\nEnter in the product category from one to five?:";//*
     std::cin>> productCategory;
-    std::cout<<"enter in the initial inventory quantity?:";
+    std::cout<<"Enter in the initial inventory quantity?:";
     std::cin>> initial_inventory_quantity;
-    std::cout<<"enter in the product price?:";
+    std::cout<<"Enter in the product price?:";
     std::cin>> product_price_per_unit;
-    std::cout<<"enter in the number of items sold? reminder!!! we only have " <<initial_inventory_quantity<<":" ;
+    std::cout<<"Enter in the number of items sold? reminder!!! we only have " <<initial_inventory_quantity<<":" ;
     std::cin>> number_of_item_sold;
 
     newInventory = initial_inventory_quantity - number_of_item_sold;
@@ -95,7 +95,7 @@ int main(){
     }
     
 
-    std::cout<<tax_rate<<std::endl;
+    std::cout<<pre_tax_rate<<std::endl;
     std::cout<<TAX_RATES<<std::endl;
     /*additional*/ std::cout<<"Total including VAT:"<<total_sales_amount * TAX_RATES + total_sales_amount<<std::endl;
     std::cout << "Product Summary:"<<std::endl;
@@ -107,8 +107,8 @@ int main(){
     std::cout << "New Inventory: " << newInventory <<std::endl;
     std::cout << "Total Sales: " << total_sales_amount <<" BIRR"<<std::endl;
     std::cout << "Inventory Status: " << inventoryStatus <<std::endl;
-    std::cout << "Sales Copy : " << tSales <<" BIRR" <<std::endl;
-    std::cout << "Inventory Copy: " << init_inventory << std::endl;
+    std::cout << "Sales Copy (auto): " << salesCopy << std::endl;
+    std::cout << "Inventory Copy (decltype): " << inventoryCopy <<std::endl;
     std::cout << "Sample Price: " << sample_product_price <<" BIRR"<< std::endl;
     std::cout << "Sample Quantity: " << sample_initial_inventory_quantity << std::endl;
 
