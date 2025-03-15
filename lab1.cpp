@@ -3,7 +3,7 @@
 
 int main(){
     std::cout<<"The program analizes product sales and inventary to a store"<<std::endl;
-    std::cout<<"c++ is a compiled language"<<std::endl;
+    std::cout<<"C++ is a compiled language"<<std::endl;
 
     std::string productName;
     int productCategory;
@@ -20,25 +20,23 @@ int main(){
     int sample_number_of_item{123};
     int sample_initial_inventory_quantity = 987;
 
-    auto tSales = total_sales_amount;
+    auto tSales = total_sales_amount; 
     decltype(initial_inventory_quantity)  init_inventory;
 
     const double TAX_RATES = 0.15;
     
-    std::cout<<"Read in the product name?:";
+    std::cout<<"enter in the product name?:";
     std::getline(std::cin,productName);
-    std::cout<<"Read in the product category from one to five?:";
+    std::cout<<"category 1 : electronics\nCategory 2: Groceries\nCategory 3: Clothing\nCategory 4: Stationery\nCategory 5: Miscellaneous\nenter in the product category from one to five?:";//*
     std::cin>> productCategory;
-    std::cout<<"Read in the initial inventory quantity?:";
+    std::cout<<"enter in the initial inventory quantity?:";
     std::cin>> initial_inventory_quantity;
-    std::cout<<"Read in the product price?:";
+    std::cout<<"enter in the product price?:";
     std::cin>> product_price_per_unit;
-    std::cout<<"Read in the number of items sold?:";
+    std::cout<<"enter in the number of items sold? reminder!!! we only have " <<initial_inventory_quantity<<":" ;
     std::cin>> number_of_item_sold;
 
-    int newInventory;
-    newInventory -=  number_of_item_sold;
-    int total_sales_amoun;
+    newInventory = initial_inventory_quantity - number_of_item_sold;
     total_sales_amount = number_of_item_sold * product_price_per_unit;
 
     if (newInventory < 10){
@@ -93,22 +91,26 @@ int main(){
 
     std::cout<<"receipt"<<std::endl;
     for (int i = 1; i <= number_of_item_sold; i++){
-      std::cout<<"product"<<i<<product_price_per_unit<<"BIRR"<<std::endl;
+      std::cout<<"product "<<i<<"--"<<product_price_per_unit<<" BIRR"<<std::endl;
     }
     
 
     std::cout<<tax_rate<<std::endl;
     std::cout<<TAX_RATES<<std::endl;
+    /*additional*/ std::cout<<"Total including VAT:"<<total_sales_amount * TAX_RATES + total_sales_amount<<std::endl;
     std::cout << "Product Summary:"<<std::endl;
     std::cout << "Product Name: " << productName <<std::endl;
     std::cout << "Product Category: " << productCategory  <<std::endl;
     std::cout << "Initial Inventory: " << initial_inventory_quantity <<std::endl;
-    std::cout << "Product Price: " <<product_price_per_unit<<"BIRR"<<std::endl;
+    std::cout << "Product Price: " <<product_price_per_unit<<" BIRR"<<std::endl;
     std::cout << "Items Sold: " << number_of_item_sold<<std::endl;
     std::cout << "New Inventory: " << newInventory <<std::endl;
-    std::cout << "Total Sales: " << total_sales_amount <<"BIRR"<<std::endl;
+    std::cout << "Total Sales: " << total_sales_amount <<" BIRR"<<std::endl;
     std::cout << "Inventory Status: " << inventoryStatus <<std::endl;
+    std::cout << "Sales Copy : " << tSales <<" BIRR" <<std::endl;
+    std::cout << "Inventory Copy: " << init_inventory << std::endl;
+    std::cout << "Sample Price: " << sample_product_price <<" BIRR"<< std::endl;
+    std::cout << "Sample Quantity: " << sample_initial_inventory_quantity << std::endl;
 
-  
     return 0;
 }
