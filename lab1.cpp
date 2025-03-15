@@ -8,22 +8,22 @@ int main(){
     std::string productName;
     int productCategory;
     int initial_inventory_quantity;
-    double product_price_per_unit;
+    float product_price_per_unit;
     int number_of_item_sold;
 
     int newInventory;
-    double total_sales_amount;
+    float total_sales_amount;
     std::string inventoryStatus;
 
-    double sample_product_price;
+    float sample_product_price;
     sample_product_price = 40.00;
     int sample_number_of_item{123};
     int sample_initial_inventory_quantity = 987;
 
     auto salesCopy = total_sales_amount;
-    decltype(initial_inventory_quantity) inventoryCopy = initial_inventory_quantity + 10;
+    decltype(initial_inventory_quantity) inventoryCopy;
 
-    const double TAX_RATES = 0.15;
+    const float TAX_RATES = 0.15;
     
     std::cout<<"Enter in the product name?:";
     std::getline(std::cin,productName);
