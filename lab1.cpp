@@ -24,7 +24,7 @@ int main(){
     decltype(initial_inventory_quantity) inventoryCopy;
 
     const float TAX_RATES = 0.15;
-    
+
     std::cout<<"Enter in the product name?:";
     std::getline(std::cin,productName);
     std::cout<<"category 1 : electronics\nCategory 2: Groceries\nCategory 3: Clothing\nCategory 4: Stationery\nCategory 5: Miscellaneous\nEnter in the product category from one to five?:";//*
@@ -46,54 +46,39 @@ int main(){
       inventoryStatus = "sufficient inventory";
     }
 
-    
-    if (productCategory == 1){
-      std::cout<<"you have sellected electronics"<<std::endl;
-    }
-    else if (productCategory == 2){
-      std::cout<<"you have sellected groceries"<<std::endl;
-    }  
-    else if (productCategory == 3){
-      std::cout<<"you have sellected clothing"<<std::endl;
-    }
-    else if (productCategory == 4){
-      std::cout<<"you have sellected stationery"<<std::endl;
-    }
-    else if (productCategory == 5){
-      std::cout<<"you have sellected miscellaneous"<<std::endl;
+
+    if (productCategory >= 1 && productCategory<=5){
+      switch (productCategory){
+      case 1:
+        std::cout<<"you have sellected electronics"<<std::endl;
+        break;
+      case 2:
+        std::cout<<"you have sellected groceries"<<std::endl;
+        break;  
+      case 3:
+        std::cout<<"you have sellected clothing"<<std::endl;
+        break;  
+      case 4:
+        std::cout<<"you have sellected stationery"<<std::endl;
+        break;  
+      case 5:
+        std::cout<<"you have sellected miscellaneous"<<std::endl;
+        break;    
+      }
     }
     else{
       std::cout<<"please sellect number bettwen 1 and 5"<<std::endl;
     }
 
 
-    switch (productCategory){
-    case 1:
-       std::cout<<"you have sellected electronics"<<std::endl;
-      break;
-    case 2:
-       std::cout<<"you have sellected groceries"<<std::endl;
-      break;  
-    case 3:
-       std::cout<<"you have sellected clothing"<<std::endl;
-      break;  
-    case 4:
-       std::cout<<"you have sellected stationery"<<std::endl;
-      break;  
-    case 5:
-       std::cout<<"you have sellected miscellaneous"<<std::endl;
-      break;    
-    default:
-       std::cout<<"please sellect number bettwen 1 and 5"<<std::endl;
-      break;
-    }
+    
 
 
     std::cout<<"receipt"<<std::endl;
     for (int i = 1; i <= number_of_item_sold; i++){
       std::cout<<"product "<<i<<"--"<<product_price_per_unit<<" BIRR"<<std::endl;
     }
-    
+
 
     std::cout<<pre_tax_rate<<std::endl;
     std::cout<<TAX_RATES<<std::endl;
